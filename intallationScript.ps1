@@ -30,5 +30,10 @@ foreach ($program in $programs){
     winget install -e --id $program;
 }
 
+
 winget upgrade --all # Upgrade dependencies from the new programs
 
+# Installing notepad++ dracula theme
+git clone "https://github.com/dracula/notepad-plus-plus.git" "C:\Users\arthu\Downloads\notepadpp"; 
+Move-Item -Path "C:\Users\arthu\Downloads\notepadpp\Dracula.xml" -Destination "C:\Program Files\Notepad++\themes"
+Remove-Item -Path "C:\Users\arthu\Downloads\notepadpp\" -force
