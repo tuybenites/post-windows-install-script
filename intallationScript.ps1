@@ -32,9 +32,3 @@ foreach ($program in $programs){
 
 winget upgrade --all # Upgrade dependencies from the new programs
 
-# Remove Windows icon arrow
-$REGEDIT_PATH = "Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons\";
-New-Item -Path $REGEDIT_PATH;
-New-ItemProperty -Path $REGEDIT_PATH -Name "29" -Value "%windir%\System32\shell32.dll,-50" -PropertyType String
-
-set-alias edit "C:\Program Files\Notepad++\notepad++.exe" # To open notepadpp from terminal
