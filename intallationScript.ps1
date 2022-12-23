@@ -10,21 +10,25 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://com
 # Winget Installations
 winget upgrade --all # Upgrade installed programs
 
-winget install -e --id Brave.Brave
-winget install -e --id Discord.Discord;
-winget install -e --id VideoLAN.VLC;
-winget install -e --id OBSProject.OBSStudio;
-winget install -e --id Microsoft.WindowsTerminal;
-winget install -e --id Microsoft.VisualStudioCode;
-winget install -e --id Microsoft.Teams;
-winget install -e --id "Notepad++.Notepad++";
-winget install -e --id Flameshot.Flameshot;
-winget install -e --id "7zip.7zip";
-winget install -e --id "9WZDNCRFHWLH"; # HP Smart (from MS Store)
-winget install -e --id "9NKSQGP7F2NH"; # WhatsApp (from MS Store)
-winget install -e --id "9NCBCSZSJRSB"; # Spotify (from MS Store)
-winget install -e --id Microsoft.PowerShell;
-winget install -e --id JanDeDobbeleer.OhMyPosh;
+$programs = "Brave.Brave",
+            "Discord.Discord",
+            "VideoLAN.VLC",
+            "OBSProject.OBSStudio",
+            "Microsoft.WindowsTerminal",
+            "Microsoft.VisualStudioCode",
+            "Microsoft.Teams",
+            "Notepad++.Notepad++",
+            "Flameshot.Flameshot",
+            "7zip.7zip",
+            "9WZDNCRFHWLH",          # HP Smart (from MS Store)
+            "9NKSQGP7F2NH",          # WhatsApp (from MS Store)
+            "9NCBCSZSJRSB",          # Spotify (from MS Store)
+            "Microsoft.PowerShell",
+            "JanDeDobbeleer.OhMyPosh"
+
+foreach ($program in $programs){
+    winget install -e --id $program;
+}
 
 winget upgrade --all # Upgrade dependencies from the new programs
 
