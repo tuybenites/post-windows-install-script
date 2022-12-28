@@ -31,7 +31,8 @@ $programs = "Brave.Brave",
             "Microsoft.PowerShell",
             "JanDeDobbeleer.OhMyPosh",
             "GitExtensionsTeam.GitExtensions",
-            "KDE.KDiff3";
+            "KDE.KDiff3",
+            "Logitech.LGS";
 
 foreach ($program in $programs){
     winget install -e --id $program;
