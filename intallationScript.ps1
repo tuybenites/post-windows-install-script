@@ -24,7 +24,8 @@ $programs = "Brave.Brave",
             "9NKSQGP7F2NH",          # WhatsApp (from MS Store)
             "9NCBCSZSJRSB",          # Spotify (from MS Store)
             "Microsoft.PowerShell",
-            "JanDeDobbeleer.OhMyPosh"
+            "JanDeDobbeleer.OhMyPosh",
+            "GitExtensionsTeam.GitExtensions"
 
 foreach ($program in $programs){
     winget install -e --id $program;
@@ -33,6 +34,7 @@ foreach ($program in $programs){
 
 winget upgrade --all # Upgrade dependencies from the new programs
 
+winget install "Git.Git" --version "2.33.0.2" # Install git in a specified version
 # Installing notepad++ dracula theme
 git clone "https://github.com/dracula/notepad-plus-plus.git" "$HOME\Downloads\notepadpp"; 
 Move-Item -Path "$HOME\Downloads\notepadpp\Dracula.xml" -Destination "C:\Program Files\Notepad++\themes"
