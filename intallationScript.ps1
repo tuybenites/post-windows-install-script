@@ -1,15 +1,20 @@
-# Run before script: Set-ExecutionPolicy Bypass -Scope Process -Force;
+# Run before the script: Set-ExecutionPolicy Bypass -Scope Process -Force;
+# Run the script in Admin Mode
 
 # Chocolatey Setup
-[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
+System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'));
 
 # Chocolatey Installations
     # Moved all choco installs to winget
 
+# Importing modules
+Import-Module .\functionsModule.psm1
+
 # Winget Installations
 winget upgrade --all # Upgrade installed programs
 
+         
 $programs = "Brave.Brave",
             "Discord.Discord",
             "VideoLAN.VLC",
@@ -25,7 +30,8 @@ $programs = "Brave.Brave",
             "9NCBCSZSJRSB",          # Spotify (from MS Store)
             "Microsoft.PowerShell",
             "JanDeDobbeleer.OhMyPosh",
-            "GitExtensionsTeam.GitExtensions"
+            "GitExtensionsTeam.GitExtensions",
+            "KDE.KDiff3";
 
 foreach ($program in $programs){
     winget install -e --id $program;
@@ -34,8 +40,5 @@ foreach ($program in $programs){
 
 winget upgrade --all # Upgrade dependencies from the new programs
 
-winget install "Git.Git" --version "2.33.0.2" # Install git in a specified version
-# Installing notepad++ dracula theme
-git clone "https://github.com/dracula/notepad-plus-plus.git" "$HOME\Downloads\notepadpp"; 
-Move-Item -Path "$HOME\Downloads\notepadpp\Dracula.xml" -Destination "C:\Program Files\Notepad++\themes"
-Remove-Item -Path "$HOME\Downloads\notepadpp\" -force
+winget install -e "Git.Git" --version "2.33.0.2" # Install git in a specified version
+Install-DraculaNotepadpp
