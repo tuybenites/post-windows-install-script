@@ -32,7 +32,9 @@ $programs = "Brave.Brave",
             "JanDeDobbeleer.OhMyPosh",
             "GitExtensionsTeam.GitExtensions",
             "KDE.KDiff3",
-            "Logitech.LGS";
+            "Logitech.LGS",
+            "Git.Git";
+            
 
 foreach ($program in $programs){
     winget install -e --id $program;
@@ -40,6 +42,4 @@ foreach ($program in $programs){
 
 
 winget upgrade --all # Upgrade dependencies from the new programs
-
-winget install -e "Git.Git" --version "2.33.0.2" # Install git in a specified version
 Install-DraculaNotepadpp
