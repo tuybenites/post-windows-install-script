@@ -30,8 +30,6 @@ $programs = "Brave.Brave",
             "9NCBCSZSJRSB",          # Spotify (from MS Store)
             "Microsoft.PowerShell",
             "JanDeDobbeleer.OhMyPosh",
-            "GitExtensionsTeam.GitExtensions",
-            "KDE.KDiff3",
             "Logitech.LGS",
             "Git.Git";
             
